@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Нова категория | FoxTale{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Нова категория</h1>
+    <div class="form-box">
+        {% include 'partials/form.html' with button='Запази' %}
+    </div>
+{% endblock %}

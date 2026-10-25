@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Поводи | FoxTale{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Поводи</h1>
+        <a href="{% url 'occasion-add' %}" class="btn btn-fox">Добави повод</a>
+    </div>
+    <ul class="list-group">
+        {% for occasion in occasion_list %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ occasion.name }}
+                <span class="badge">{{ occasion.total }} продукт{{ occasion.total|pluralize:'а' }}</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Все още няма поводи. Добави първия.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

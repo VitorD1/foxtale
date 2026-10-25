@@ -1,0 +1,111 @@
+:root {
+    --cream: #FBF6EE;
+    --olive: #A3B18A;
+    --olive-dark: #5E6E45;
+    --coffee: #C8A98B;
+    --coffee-dark: #3E2F25;
+    --orange: #F2A65A;
+}
+
+body {
+    background: var(--cream);
+    color: var(--coffee-dark);
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h5, .logo span {
+    font-family: 'Playfair Display', serif;
+}
+
+.sidebar {
+    background: var(--olive);
+}
+
+.sidebar .nav-link {
+    color: var(--coffee-dark);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.sidebar .nav-link:hover {
+    background: var(--cream);
+}
+
+.logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--coffee-dark);
+    text-decoration: none;
+}
+
+.logo img {
+    width: 90px;
+}
+
+.logo span {
+    font-size: 2rem;
+}
+
+.btn-fox {
+    background: var(--orange);
+    color: var(--coffee-dark);
+    font-weight: 700;
+    border: none;
+}
+
+.btn-fox:hover {
+    background: var(--coffee);
+}
+
+.card, .list-group-item {
+    border-color: var(--coffee);
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.badge {
+    background: var(--olive-dark);
+}
+
+.form-box {
+    max-width: 600px;
+}
+
+.fox-form input,
+.fox-form textarea,
+.fox-form select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--coffee);
+    border-radius: 8px;
+    background: #fff;
+}
+
+.fox-form input[type="checkbox"] {
+    width: auto;
+}
+
+.fox-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.error {
+    color: #B4532A;
+    font-size: 0.9rem;
+}
+
+footer {
+    border-top: 1px solid var(--coffee);
+    color: var(--olive-dark);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
