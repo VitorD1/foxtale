@@ -1,0 +1,15 @@
+<div class="col-sm-6 col-lg-4">
+    <div class="card h-100">
+        <div class="card-body">
+            <h5>{{ article.title }}</h5>
+            <p class="mb-2">
+                <span class="badge">{{ article.get_section_display }}</span>
+                {% if article.occasion %}
+                    <span class="badge">{{ article.occasion }}</span>
+                {% endif %}
+            </p>
+            <p>{{ article.text|truncatewords:20 }}</p>
+            <a href="{% url 'article-detail' article.pk %}" class="btn btn-fox btn-sm d-block">Прочети</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Статии | FoxTale{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Статии</h1>
+        <a href="{% url 'article-add' %}" class="btn btn-fox">Добави статия</a>
+    </div>
+    <div class="row g-3">
+        {% for article in article_list %}
+            {% include 'partials/article_card.html' %}
+        {% empty %}
+            <p>Все още няма статии. Добави първата.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

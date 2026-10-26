@@ -7,6 +7,14 @@
         <h1>Продукти</h1>
         <a href="{% url 'product-add' %}" class="btn btn-fox">Добави продукт</a>
     </div>
+    <form method="get" class="row g-2 mb-4">
+        {% for field in filter_form %}
+            <div class="col-md-3">{{ field }}</div>
+        {% endfor %}
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-fox w-100">Покажи</button>
+        </div>
+    </form>
     <div class="row g-3">
         {% for product in product_list %}
             <div class="col-sm-6 col-lg-4">
@@ -19,11 +27,12 @@
                         {% if not product.is_available %}
                             <span class="badge">Изчерпан</span>
                         {% endif %}
+                        <a href="{% url 'product-detail' product.pk %}" class="btn btn-fox btn-sm d-block mt-2">Виж</a>
                     </div>
                 </div>
             </div>
         {% empty %}
-            <p>Все още няма продукти. Добави първия.</p>
+            <p>Няма намерени продукти.</p>
         {% endfor %}
     </div>
 {% endblock %}

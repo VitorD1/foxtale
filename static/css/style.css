@@ -109,3 +109,31 @@ footer {
     object-fit: cover;
     border-radius: 12px 12px 0 0;
 }
+
+.slide {
+    height: 400px;
+    background-color: #fff;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+}
+
+.carousel-caption {
+    background: rgba(62, 47, 37, 0.7);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.article-slide {
+    background: var(--olive);
+    border-radius: 12px;
+    padding: 48px 15%;
+    text-align: center;
+    min-height: 260px;
+}
+#products-carousel .carousel-control-prev-icon,
+#products-carousel .carousel-control-next-icon {
+    background-color: rgba(62, 47, 37, 0.7);
+    border-radius: 50%;
+}

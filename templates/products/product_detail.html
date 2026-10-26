@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.title }} | FoxTale{% endblock %}
+
+{% block content %}
+    <div class="row g-4">
+        <div class="col-md-6">
+            <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.title }}">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ product.title }}</h1>
+            <p>Категория: {{ product.category }}</p>
+            <p class="fs-4 fw-bold">{{ product.price|floatformat:2 }} €</p>
+            {% if not product.is_available %}
+                <p class="badge">Изчерпан</p>
+            {% endif %}
+            {{ product.description|linebreaks }}
+            <h5>Подходящ за</h5>
+            {% for occasion in product.occasions.all %}
+                <span class="badge">{{ occasion }}</span>
+            {% empty %}
+                <p>Всеки повод</p>
+            {% endfor %}
+            <div class="mt-4">
+                <a href="{% url 'product-edit' product.pk %}" class="btn btn-fox">Редактирай</a>
+                <a href="{% url 'product-delete' product.pk %}" class="btn btn-outline-danger">Изтрий</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }} | FoxTale{% endblock %}
+
+{% block content %}
+    <h1>{{ article.title }}</h1>
+    <p>
+        <span class="badge">{{ article.get_section_display }}</span>
+        {% if article.occasion %}
+            <span class="badge">{{ article.occasion }}</span>
+        {% endif %}
+        <small class="ms-2">{{ article.created_at|date:'d.m.Y' }}</small>
+    </p>
+    {% if article.image %}
+        <img src="{{ article.image.url }}" class="img-fluid rounded mb-3" alt="{{ article.title }}">
+    {% endif %}
+    {{ article.text|linebreaks }}
+    {% if article.products.all %}
+        <h5 class="mt-4">Препоръчани продукти</h5>
+        <ul>
+            {% for product in article.products.all %}
+                <li><a href="{% url 'product-detail' product.pk %}">{{ product.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="mt-4">
+        <a href="{% url 'article-edit' article.pk %}" class="btn btn-fox">Редактирай</a>
+        <a href="{% url 'article-delete' article.pk %}" class="btn btn-outline-danger">Изтрий</a>
+    </div>
+{% endblock %}

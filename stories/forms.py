@@ -60,8 +60,4 @@ class ArticleEditForm(ArticleForm):
         self.fields['section'].disabled = True
 
 
-class ArticleDeleteForm(ArticleForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.disabled = True
+

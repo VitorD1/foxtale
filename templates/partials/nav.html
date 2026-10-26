@@ -1,7 +1,12 @@
 <nav class="col-md-3 col-lg-2 sidebar py-4">
     <ul class="nav flex-column">
         <li><a class="nav-link" href="{% url 'home' %}">Начало</a></li>
+        <li><a class="nav-link" href="{% url 'section' 'about' %}">За мен</a></li>
+        <li><a class="nav-link" href="{% url 'section' 'mission' %}">Мисия</a></li>
+        <li><a class="nav-link" href="{% url 'section' 'history' %}">История</a></li>
         <li><a class="nav-link" href="{% url 'product-list' %}">Продукти</a></li>
+        <li><a class="nav-link" href="{% url 'section' 'ideas' %}">Идеи</a></li>
+        <li><a class="nav-link" href="{% url 'article-list' %}">Статии</a></li>
         <li><a class="nav-link" href="{% url 'category-list' %}">Категории</a></li>
         <li><a class="nav-link" href="{% url 'occasion-list' %}">Поводи</a></li>
     </ul>

@@ -1,8 +1,8 @@
 from django.db.models import Count
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 
-from products.forms import CategoryForm, OccasionForm, ProductForm
+from products.forms import CategoryForm, OccasionForm, ProductEditForm, ProductFilterForm, ProductForm
 from products.models import Category, Occasion, Product
 
 
@@ -40,9 +40,50 @@ class ProductListView(ListView):
     model = Product
     template_name = 'products/product_list.html'
 
+    def get_queryset(self):
+        products = Product.objects.all()
+        form = ProductFilterForm(self.request.GET)
+
+        if form.is_valid():
+            category = form.cleaned_data['category']
+            occasion = form.cleaned_data['occasion']
+            sort = form.cleaned_data['sort']
+
+            if category:
+                products = products.filter(category=category)
+            if occasion:
+                products = products.filter(occasions=occasion)
+            if sort:
+                products = products.order_by(sort)
+
+        return products
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter_form'] = ProductFilterForm(self.request.GET)
+        return context
+
 
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
     template_name = 'products/product_form.html'
+    success_url = reverse_lazy('product-list')
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'products/product_detail.html'
+
+
+class ProductEditView(UpdateView):
+    model = Product
+    form_class = ProductEditForm
+    template_name = 'products/product_edit.html'
+    success_url = reverse_lazy('product-list')
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'products/product_delete.html'
     success_url = reverse_lazy('product-list')

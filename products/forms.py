@@ -93,8 +93,29 @@ class ProductEditForm(ProductForm):
         self.fields['category'].help_text = 'Категорията не може да се сменя.'
 
 
-class ProductDeleteForm(ProductForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.disabled = True
+class ProductFilterForm(forms.Form):
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        required=False,
+        empty_label='Всички категории',
+        widget=forms.Select(attrs={'class': 'form-select'}),
+    )
+    occasion = forms.ModelChoiceField(
+        queryset=Occasion.objects.all(),
+        required=False,
+        empty_label='Всички поводи',
+        widget=forms.Select(attrs={'class': 'form-select'}),
+    )
+    sort = forms.ChoiceField(
+        choices=[
+            ('', 'Най-нови'),
+            ('price', 'Цена: ниска към висока'),
+            ('-price', 'Цена: висока към ниска'),
+            ('title', 'По име'),
+        ],
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-select'}),
+    )
+
+
+

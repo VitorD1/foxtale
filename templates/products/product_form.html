@@ -4,6 +4,7 @@
 
 {% block content %}
     <h1 class="mb-4">Нов продукт</h1>
+    <p>Няма подходяща категория? <a href="{% url 'category-add' %}">Добави нова</a>.</p>
     <div class="form-box">
         {% include 'partials/form.html' with button='Запази' %}
     </div>

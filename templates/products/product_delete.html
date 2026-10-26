@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Изтриване | FoxTale{% endblock %}
+
+{% block content %}
+    <h1 class="mb-3">Изтриване на продукт</h1>
+    <p>Сигурен ли си, че искаш да изтриеш „{{ product.title }}“?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Да, изтрий</button>
+        <a href="{% url 'product-detail' product.pk %}" class="btn btn-link">Назад</a>
+    </form>
+{% endblock %}
