@@ -1,3 +1,5 @@
+{% load fox_tags %}
+{% products_count as total %}
 <footer class="text-center py-3 mt-4">
-    <p class="mb-0">&copy; {% now 'Y' %} FoxTale · ръчно декорирани подаръци</p>
+    <p class="mb-0">&copy; {% now 'Y' %} FoxTale · ръчно декорирани подаръци · Продукти: {{ total }}</p>
 </footer>

@@ -13,8 +13,12 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5>{{ category.name }}</h5>
-                        <p>{{ category.description|default:'Без описание' }}</p>
-                        <span class="badge">{{ category.total }} продукт{{ category.total|pluralize:'а' }}</span>
+                        {% if category.description %}
+                            <p>{{ category.description }}</p>
+                        {% else %}
+                            <p>Без описание</p>
+                        {% endif %}
+                        <span class="badge">Продукти: {{ category.total }}</span>
                     </div>
                 </div>
             </div>

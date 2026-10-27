@@ -19,7 +19,7 @@
         {% for product in product_list %}
             <div class="col-sm-6 col-lg-4">
                 <div class="card h-100">
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-img-top" style="background-image: url('{{ product.image.url }}');"></div>
                     <div class="card-body">
                         <h5>{{ product.title }}</h5>
                         <p class="mb-2">{{ product.category }}</p>

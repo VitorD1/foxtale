@@ -5,7 +5,7 @@
     {% endfor %}
     {% for field in form %}
         <div class="mb-3">
-            {{ field.label_tag }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
             {{ field }}
             {% if field.help_text %}
                 <small class="text-muted d-block">{{ field.help_text }}</small>

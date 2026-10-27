@@ -106,7 +106,8 @@ footer {
 
 .card-img-top {
     height: 220px;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
     border-radius: 12px 12px 0 0;
 }
 
@@ -132,8 +133,15 @@ footer {
     text-align: center;
     min-height: 260px;
 }
+
 #products-carousel .carousel-control-prev-icon,
 #products-carousel .carousel-control-next-icon {
     background-color: rgba(62, 47, 37, 0.7);
     border-radius: 50%;
+}
+
+.lang {
+    color: var(--coffee-dark);
+    font-weight: 700;
+    text-decoration: none;
 }

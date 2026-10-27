@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load fox_tags %}
 
 {% block title %}{{ article.title }} | FoxTale{% endblock %}
 
@@ -9,10 +10,10 @@
         {% if article.occasion %}
             <span class="badge">{{ article.occasion }}</span>
         {% endif %}
-        <small class="ms-2">{{ article.created_at|date:'d.m.Y' }}</small>
+        <small class="ms-2">{{ article.created_at|date:'d.m.Y' }} · {{ article.text|reading_time }} мин. четене</small>
     </p>
     {% if article.image %}
-        <img src="{{ article.image.url }}" class="img-fluid rounded mb-3" alt="{{ article.title }}">
+        <div class="slide mb-3" style="background-image: url('{{ article.image.url }}');"></div>
     {% endif %}
     {{ article.text|linebreaks }}
     {% if article.products.all %}
